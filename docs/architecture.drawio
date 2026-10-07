@@ -1,0 +1,294 @@
+<mxfile host="65bd71144e">
+    <diagram id="hl" name="1 · High-level flow">
+        <mxGraphModel dx="955" dy="453" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="hl-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;" value="&lt;b style=&#39;font-size:22px&#39;&gt;Travel Disruption Radar — how it works&lt;/b&gt;&lt;br&gt;&lt;span style=&#39;color:#666&#39;&gt;One question: “Will something disrupt my trip, how sure are we, and what should I do?”&lt;/span&gt;" vertex="1">
+                    <mxGeometry height="40" width="1200" x="40" y="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;shape=mxgraph.basic.rect;" value="&lt;b&gt;Traveler / Ops&lt;/b&gt;&lt;br&gt;&lt;br&gt;“NYC to San Francisco tomorrow”" vertex="1">
+                    <mxGeometry height="110" width="170" x="40" y="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;b&gt;① Understand the trip&lt;/b&gt;&lt;br&gt;&lt;br&gt;AI turns free text into airports + date.&lt;br&gt;Cities expand to metro alternates (JFK / LGA / EWR)." vertex="1">
+                    <mxGeometry height="110" width="190" x="260" y="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;② Gather live evidence&lt;/b&gt; (in parallel)&lt;br&gt;&lt;br&gt;&lt;div style=&#39;text-align:left&#39;&gt;• &lt;b&gt;FAA&lt;/b&gt; – ground stops, delay programs now&lt;br&gt;• &lt;b&gt;NWS&lt;/b&gt; – official alerts &amp;amp; forecast&lt;br&gt;• &lt;b&gt;Aviation TAFs&lt;/b&gt; – airport forecast, next ~30h&lt;br&gt;• &lt;b&gt;Open-Meteo&lt;/b&gt; – model outlook to 16 days&lt;br&gt;• &lt;b&gt;SIGMETs&lt;/b&gt; – hazards crossing the flight path&lt;/div&gt;" vertex="1">
+                    <mxGeometry height="170" width="250" x="500" y="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;b&gt;③ Score the risk&lt;/b&gt;&lt;br&gt;&lt;br&gt;Transparent rules: severity per signal, does it apply on the trip date, confidence by lead time." vertex="1">
+                    <mxGeometry height="110" width="200" x="800" y="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;b&gt;④ Explain &amp;amp; recommend&lt;/b&gt;&lt;br&gt;&lt;br&gt;AI writes the briefing, citing evidence IDs. Uncited claims are removed." vertex="1">
+                    <mxGeometry height="110" width="210" x="1050" y="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;b&gt;⑤ What the user sees&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;div style=&#39;text-align:left&#39;&gt;• Risk level: LOW / MODERATE / HIGH / UNKNOWN&lt;br&gt;• Confidence + why&lt;br&gt;• Key risks → evidence&lt;br&gt;• Actions &amp;amp; when to take them&lt;br&gt;• Map, alternates, raw source data&lt;/div&gt;" vertex="1">
+                    <mxGeometry height="170" width="220" x="1310" y="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-8" edge="1" parent="1" source="hl-2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;" target="hl-3" value="">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-9" edge="1" parent="1" source="hl-3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;" target="hl-4" value="">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-10" edge="1" parent="1" source="hl-4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;" target="hl-5" value="">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-11" edge="1" parent="1" source="hl-5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;" target="hl-6" value="">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-12" edge="1" parent="1" source="hl-6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;" target="hl-7" value="">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;" value="&lt;b style=&#39;font-size:15px&#39;&gt;Which evidence is usable depends on how far away the trip is&lt;/b&gt; &lt;span style=&#39;color:#666&#39;&gt;(this is how we communicate uncertainty)&lt;/span&gt;" vertex="1">
+                    <mxGeometry height="30" width="900" x="40" y="330" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="&lt;b&gt;Today&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="30" width="224" x="240" y="370" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-15" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="&lt;b&gt;Tomorrow&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="30" width="224" x="470" y="370" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="&lt;b&gt;2–6 days&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="30" width="224" x="700" y="370" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="&lt;b&gt;7–15 days&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="30" width="224" x="930" y="370" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-18" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="&lt;b&gt;16+ days&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="30" width="224" x="1160" y="370" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-19" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#ffffff;strokeColor=#999999;align=left;spacingLeft=6;" value="FAA live status" vertex="1">
+                    <mxGeometry height="32" width="190" x="40" y="410" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-20" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Fully applies" vertex="1">
+                    <mxGeometry height="32" width="224" x="240" y="410" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-21" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Structural causes only" vertex="1">
+                    <mxGeometry height="32" width="224" x="470" y="410" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-22" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=11;" value="Structural causes only, downgraded · everything else is context-only" vertex="1">
+                    <mxGeometry height="32" width="684" x="700" y="410" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-23" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#ffffff;strokeColor=#999999;align=left;spacingLeft=6;" value="SIGMETs (en-route)" vertex="1">
+                    <mxGeometry height="32" width="190" x="40" y="450" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-24" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Applies" vertex="1">
+                    <mxGeometry height="32" width="224" x="240" y="450" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-25" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=11;" value="Not applicable (valid for hours)" vertex="1">
+                    <mxGeometry height="32" width="914" x="470" y="450" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-26" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#ffffff;strokeColor=#999999;align=left;spacingLeft=6;" value="Aviation TAF" vertex="1">
+                    <mxGeometry height="32" width="190" x="40" y="490" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-27" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Applies" vertex="1">
+                    <mxGeometry height="32" width="224" x="240" y="490" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-28" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Partial day" vertex="1">
+                    <mxGeometry height="32" width="224" x="470" y="490" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-29" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=11;" value="Out of horizon" vertex="1">
+                    <mxGeometry height="32" width="684" x="700" y="490" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-30" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#ffffff;strokeColor=#999999;align=left;spacingLeft=6;" value="NWS alerts + forecast" vertex="1">
+                    <mxGeometry height="32" width="190" x="40" y="530" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-31" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Alerts + text forecast" vertex="1">
+                    <mxGeometry height="32" width="684" x="240" y="530" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-32" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=11;" value="Alerts only if already issued" vertex="1">
+                    <mxGeometry height="32" width="454" x="930" y="530" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-33" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#ffffff;strokeColor=#999999;align=left;spacingLeft=6;" value="Open-Meteo model" vertex="1">
+                    <mxGeometry height="32" width="190" x="40" y="570" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-34" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="High skill" vertex="1">
+                    <mxGeometry height="32" width="454" x="240" y="570" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-35" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Medium" vertex="1">
+                    <mxGeometry height="32" width="224" x="700" y="570" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-36" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" value="Low" vertex="1">
+                    <mxGeometry height="32" width="224" x="930" y="570" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-37" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="None → UNKNOWN" vertex="1">
+                    <mxGeometry height="32" width="224" x="1160" y="570" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-38" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="&lt;b&gt;Overall confidence:&lt;/b&gt;  high (today / tomorrow)  →  medium (2–4 days)  →  low (5–15 days)  →  very low (16+).  Any failed source lowers it one notch." vertex="1">
+                    <mxGeometry height="34" width="1144" x="240" y="615" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-39" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#ffffff;strokeColor=#333333;spacing=12;" value="&lt;div style=&#39;text-align:left&#39;&gt;&lt;b style=&#39;font-size:14px&#39;&gt;Design principles&lt;/b&gt;&lt;br&gt;&lt;br&gt;1. &lt;b&gt;Rules decide, AI explains.&lt;/b&gt; The headline level is reproducible and auditable; the LLM adds judgement, narrative and actions — and can flag disagreement as a visible “second opinion”.&lt;br&gt;2. &lt;b&gt;Every claim is traceable.&lt;/b&gt; Each finding has an ID, source link, timestamp and raw data; AI citations are validated server-side.&lt;br&gt;3. &lt;b&gt;No data ≠ low risk.&lt;/b&gt; Beyond forecast horizons the answer is UNKNOWN, not LOW.&lt;br&gt;4. &lt;b&gt;Relevance filtering.&lt;/b&gt; e.g. FAA “closures” that only affect general aviation are shown as context, not risk.&lt;br&gt;5. &lt;b&gt;Degrade gracefully.&lt;/b&gt; Any source (or the AI) can fail; the user is told and confidence drops.&lt;/div&gt;" vertex="1">
+                    <mxGeometry height="190" width="700" x="40" y="690" as="geometry"/>
+                </mxCell>
+                <mxCell id="hl-40" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#e1d5e7;strokeColor=#9673a6;spacing=12;" value="&lt;div style=&#39;text-align:left&#39;&gt;&lt;b style=&#39;font-size:14px&#39;&gt;Where AI is (and isn&#39;t) used&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;AI:&lt;/b&gt; understanding messy trip requests (“NYC → SF next Fri”); synthesising many weak signals into a short, proportional briefing; turning evidence into concrete actions (waivers, earlier flights, alternate airports); an independent second opinion on the level.&lt;br&gt;&lt;br&gt;&lt;b&gt;Not AI:&lt;/b&gt; fetching data, deciding what applies to the trip date, severity thresholds, the headline risk level, confidence. These need to be deterministic, testable and explainable to an Ops team.&lt;/div&gt;" vertex="1">
+                    <mxGeometry height="190" width="750" x="780" y="690" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="ta" name="2 · Technical architecture">
+        <mxGraphModel dx="2720" dy="1034" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="ta-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;" value="&lt;b style=&#39;font-size:22px&#39;&gt;Technical architecture&lt;/b&gt;&lt;br&gt;&lt;span style=&#39;color:#666&#39;&gt;Python 3.10 · FastAPI · httpx (async) · Anthropic SDK · vanilla JS + Leaflet · pytest&lt;/span&gt;" vertex="1">
+                    <mxGeometry height="40" width="1400" x="40" y="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=none;dashed=1;verticalAlign=top;align=left;spacingLeft=8;spacingTop=4;fontStyle=1;strokeColor=#666666;" value="Browser (static SPA)" vertex="1">
+                    <mxGeometry height="520" width="260" x="40" y="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="&lt;b&gt;index.html / app.js&lt;/b&gt;&lt;br&gt;free-text box, form, results" vertex="1">
+                    <mxGeometry height="70" width="220" x="60" y="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="&lt;b&gt;Results view&lt;/b&gt;&lt;br&gt;risk banner · AI briefing with clickable [E#] citations · route segments · alternates · evidence table · source health" vertex="1">
+                    <mxGeometry height="120" width="220" x="60" y="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="&lt;b&gt;Leaflet map&lt;/b&gt;&lt;br&gt;great-circle route, SIGMET polygons" vertex="1">
+                    <mxGeometry height="60" width="220" x="60" y="360" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#ffffff;strokeColor=#999999;dashed=1;" value="tile.openstreetmap.org" vertex="1">
+                    <mxGeometry height="60" width="220" x="60" y="520" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-7" edge="1" parent="1" source="ta-5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;dashed=1;" target="ta-6" value="map tiles">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=none;dashed=1;verticalAlign=top;align=left;spacingLeft=8;spacingTop=4;fontStyle=1;strokeColor=#6c8ebf;" value="FastAPI  ·  app/main.py" vertex="1">
+                    <mxGeometry height="520" width="330" x="340" y="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;POST /api/parse&lt;/b&gt;  {text} → {origin, destination, date, assumptions}" vertex="1">
+                    <mxGeometry height="50" width="290" x="360" y="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;POST /api/assess&lt;/b&gt;  {origin, destination, date} → full assessment" vertex="1">
+                    <mxGeometry height="50" width="290" x="360" y="310" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="GET /api/airports?q= (autocomplete) · GET /api/health" vertex="1">
+                    <mxGeometry height="40" width="290" x="360" y="380" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;app/http.py&lt;/b&gt;&lt;br&gt;shared httpx.AsyncClient&lt;br&gt;identifying User-Agent (NWS requirement)&lt;br&gt;in-memory TTL cache (2–15 min per source)" vertex="1">
+                    <mxGeometry height="110" width="290" x="360" y="470" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-13" edge="1" parent="1" source="ta-3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;startArrow=block;startFill=1;exitX=1;exitY=0.3;entryX=0;entryY=0.5;" target="ta-9" value="request / JSON">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-14" edge="1" parent="1" source="ta-3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;startArrow=block;startFill=1;exitX=1;exitY=0.7;entryX=0;entryY=0.5;" target="ta-10" value="">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-15" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=none;dashed=1;verticalAlign=top;align=left;spacingLeft=8;spacingTop=4;fontStyle=1;strokeColor=#82b366;" value="Assessment pipeline  ·  app/service.py" vertex="1">
+                    <mxGeometry height="700" width="470" x="710" y="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;b&gt;1. Resolve airports&lt;/b&gt; – app/airports.py&lt;br&gt;IATA/ICAO · metro groups · city match · fuzzy · geocode → nearest" vertex="1">
+                    <mxGeometry height="60" width="430" x="730" y="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;b&gt;2. Build TripContext&lt;/b&gt; – days_out, trip window in UTC (origin-tz midnight → dest-tz end of day)" vertex="1">
+                    <mxGeometry height="50" width="430" x="730" y="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-18" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" value="" vertex="1">
+                    <mxGeometry height="170" width="430" x="730" y="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-19" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;" value="&lt;b&gt;3. asyncio.gather(source adapters)&lt;/b&gt;  – 20s timeout each; failure → status=error" vertex="1">
+                    <mxGeometry height="30" width="410" x="740" y="284" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-20" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#ffffff;strokeColor=#82b366;fontSize=10;" value="&lt;b&gt;faa.py&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="40" width="78" x="742" y="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-21" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#ffffff;strokeColor=#82b366;fontSize=10;" value="&lt;b&gt;nws.py&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="40" width="78" x="825" y="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-22" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#ffffff;strokeColor=#82b366;fontSize=10;" value="&lt;b&gt;taf.py&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="40" width="78" x="908" y="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-23" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#ffffff;strokeColor=#82b366;fontSize=10;" value="&lt;b&gt;open_meteo.py&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="40" width="78" x="991" y="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-24" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#ffffff;strokeColor=#82b366;fontSize=10;" value="&lt;b&gt;sigmet.py&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="40" width="78" x="1074" y="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-25" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;" value="&lt;span style=&#39;font-size:11px&#39;&gt;Each adapter: fetch → parse → apply horizon/relevance rules → emit normalized &lt;b&gt;Signal&lt;/b&gt;s + a &lt;b&gt;SourceStatus&lt;/b&gt; (ok / error / not_applicable, horizon, latency, message)&lt;/span&gt;" vertex="1">
+                    <mxGeometry height="80" width="415" x="740" y="368" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-26" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;b&gt;4. Score&lt;/b&gt; – app/risk.py&lt;br&gt;assign IDs E1…En · per-segment max severity · corroboration · confidence · UNKNOWN rule" vertex="1">
+                    <mxGeometry height="60" width="430" x="730" y="470" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-27" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;b&gt;5. Brief&lt;/b&gt; – app/ai.py write_briefing()&lt;br&gt;evidence JSON → Claude (&lt;b&gt;strict&lt;/b&gt; tool schema) → &lt;b&gt;validate_briefing()&lt;/b&gt; drops invalid citations → 1 retry if incomplete → backfill from rules → on error: fallback_briefing()" vertex="1">
+                    <mxGeometry height="80" width="430" x="730" y="550" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-28" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;b&gt;6. Response → browser&lt;/b&gt; (returned by POST /api/assess)&lt;br&gt;trip · assessment · briefing(+meta) · evidence[] · sources[] · map" vertex="1">
+                    <mxGeometry height="60" width="430" x="730" y="650" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-29" edge="1" parent="1" source="ta-16" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;" target="ta-17" value="">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-30" edge="1" parent="1" source="ta-17" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;" target="ta-18" value="">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-31" edge="1" parent="1" source="ta-18" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;" target="ta-26" value="">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-32" edge="1" parent="1" source="ta-26" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;" target="ta-27" value="">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-33" edge="1" parent="1" source="ta-27" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;" target="ta-28" value="">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-34" edge="1" parent="1" source="ta-10" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="ta-16" value="assess()">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-35" edge="1" parent="1" source="ta-3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="ta-4" value="render">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-36" edge="1" parent="1" source="ta-18" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;exitX=0;exitY=0.85;entryX=1;entryY=0.5;dashed=1;" target="ta-12" value="uses">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-37" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;b&gt;app/ai.py parse_trip()&lt;/b&gt;&lt;br&gt;Claude Haiku (strict tool schema) with today&#39;s date&lt;br&gt;↓ on error / no key&lt;br&gt;regex + date-phrase parser (today, tomorrow, weekdays, in N days, ISO, M/D)" vertex="1">
+                    <mxGeometry height="100" width="290" x="360" y="195" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-38" edge="1" parent="1" source="ta-9" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;" target="ta-37" value="">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-39" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=none;dashed=1;verticalAlign=top;align=left;spacingLeft=8;spacingTop=4;fontStyle=1;strokeColor=#d79b00;" value="External services (all free / no purchase)" vertex="1">
+                    <mxGeometry height="700" width="440" x="1220" y="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-40" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#ffe6cc;strokeColor=#d79b00;" value="&lt;b&gt;FAA NAS Status&lt;/b&gt; (XML)&lt;br&gt;nasstatus.faa.gov/api/airport-status-information&lt;br&gt;&lt;i style=&#39;color:#555&#39;&gt;ground stops, GDPs, delays, closures — live&lt;/i&gt;" vertex="1">
+                    <mxGeometry height="72" width="400" x="1240" y="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-41" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#ffe6cc;strokeColor=#d79b00;" value="&lt;b&gt;National Weather Service&lt;/b&gt; (JSON)&lt;br&gt;api.weather.gov /alerts/active?point · /points → /forecast&lt;br&gt;&lt;i style=&#39;color:#555&#39;&gt;official alerts &amp;amp; 7-day text forecast&lt;/i&gt;" vertex="1">
+                    <mxGeometry height="72" width="400" x="1240" y="218" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-42" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#ffe6cc;strokeColor=#d79b00;" value="&lt;b&gt;AviationWeather.gov TAF&lt;/b&gt;&lt;br&gt;aviationweather.gov/api/data/taf&lt;br&gt;&lt;i style=&#39;color:#555&#39;&gt;airport aviation forecast ~24–30h&lt;/i&gt;" vertex="1">
+                    <mxGeometry height="72" width="400" x="1240" y="306" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-43" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#ffe6cc;strokeColor=#d79b00;" value="&lt;b&gt;Open-Meteo&lt;/b&gt;&lt;br&gt;api.open-meteo.com/v1/forecast (multi-location)&lt;br&gt;&lt;i style=&#39;color:#555&#39;&gt;daily model forecast ≤16 days&lt;/i&gt;" vertex="1">
+                    <mxGeometry height="72" width="400" x="1240" y="394" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-44" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#ffe6cc;strokeColor=#d79b00;" value="&lt;b&gt;AviationWeather.gov SIGMETs&lt;/b&gt;&lt;br&gt;aviationweather.gov/api/data/airsigmet&lt;br&gt;&lt;i style=&#39;color:#555&#39;&gt;polygons ∩ great-circle route&lt;/i&gt;" vertex="1">
+                    <mxGeometry height="72" width="400" x="1240" y="482" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-45" edge="1" parent="1" source="ta-18" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;strokeColor=#d79b00;exitX=1;exitY=0.35;entryX=0;entryY=0.5;" target="ta-42" value="HTTPS ×5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-46" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#ffe6cc;strokeColor=#d79b00;" value="&lt;b&gt;Open-Meteo Geocoding&lt;/b&gt; – small-town fallback → nearest airport" vertex="1">
+                    <mxGeometry height="50" width="400" x="1240" y="575" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-47" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;b&gt;Anthropic Claude API&lt;/b&gt;&lt;br&gt;Haiku 4.5 ← parse_trip() · Sonnet 5 ← write_briefing()&lt;br&gt;(models configurable via .env)" vertex="1">
+                    <mxGeometry height="60" width="400" x="1240" y="640" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-48" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#ffe6cc;strokeColor=#d79b00;dashed=1;" value="&lt;b&gt;OurAirports dataset&lt;/b&gt; (build time)&lt;br&gt;scripts/build_airports.py → data/airports.json (502 airports + IANA tz)" vertex="1">
+                    <mxGeometry height="60" width="400" x="1240" y="715" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-49" edge="1" parent="1" source="ta-16" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;dashed=1;strokeColor=#d79b00;endArrow=open;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="ta-46" value="geocode">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-50" edge="1" parent="1" source="ta-27" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;dashed=1;strokeColor=#9673a6;endArrow=open;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="ta-47" value="LLM">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-51" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#ffffff;strokeColor=#333333;align=left;spacingLeft=10;" value="&lt;div style=&#39;text-align:left;font-family:monospace;font-size:11px&#39;&gt;&lt;b style=&#39;font-family:Helvetica;font-size:13px&#39;&gt;Normalized evidence contract (app/models.py · Signal)&lt;/b&gt;&lt;br&gt;&lt;br&gt;id            &quot;E3&quot;  (stable within a response; cited by AI)&lt;br&gt;source        faa | nws | taf | open_meteo | sigmet&lt;br&gt;location      &quot;SFO&quot; | &quot;SFO,OAK,SJC&quot; | &quot;EN-ROUTE&quot;&lt;br&gt;category      ground_delay_program | weather_alert | aviation_forecast | …&lt;br&gt;severity      0 none · 1 low · 2 moderate · 3 high&lt;br&gt;confidence    high | medium | low&lt;br&gt;relevance     why it does / doesn&#39;t apply to this trip date&lt;br&gt;counts_toward_score   false ⇒ shown as context only&lt;br&gt;valid_from / valid_to / issued_at · url · raw (original text)&lt;/div&gt;" vertex="1">
+                    <mxGeometry height="230" width="620" x="40" y="830" as="geometry"/>
+                </mxCell>
+                <mxCell id="ta-52" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fontSize=12;fillColor=#fff2cc;strokeColor=#d6b656;spacing=12;" value="&lt;div style=&#39;text-align:left&#39;&gt;&lt;b style=&#39;font-size:13px&#39;&gt;Before production (not in prototype)&lt;/b&gt;&lt;br&gt;&lt;br&gt;• &lt;b&gt;Flight-specific data&lt;/b&gt;: airline/flight number status (FlightAware / Cirium / OAG — paid) and inbound-aircraft delay propagation; connections &amp;amp; hubs.&lt;br&gt;• &lt;b&gt;Calibration&lt;/b&gt;: back-test thresholds against BTS on-time / cancellation history; replace hand-tuned severities with learned probabilities.&lt;br&gt;• &lt;b&gt;Ops&lt;/b&gt;: shared cache (Redis), rate-limit &amp;amp; retry/backoff per source, scheduled pre-fetch, structured logging, source-freshness SLOs, alerting.&lt;br&gt;• &lt;b&gt;Proactive&lt;/b&gt;: ingest itineraries from the TMC/booking tool, monitor continuously, push alerts on change (Slack / email / SMS).&lt;br&gt;• &lt;b&gt;AI governance&lt;/b&gt;: eval set of historical disruption days, prompt/version pinning, PII minimisation, cost/latency budgets, human review of recommendations.&lt;br&gt;• &lt;b&gt;Security&lt;/b&gt;: SSO, secrets manager, CORS / CSP, input limits, audit trail of what each traveler was told and why.&lt;br&gt;• &lt;b&gt;Coverage&lt;/b&gt;: ground transport &amp;amp; rail (Amtrak), hotels, civil events/strikes, TSA wait times, international.&lt;/div&gt;" vertex="1">
+                    <mxGeometry height="230" width="960" x="700" y="830" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

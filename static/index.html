@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Travel Disruption Radar</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">◎</span>
+      <div>
+        <h1>Travel Disruption Radar</h1>
+        <p>One view of what could disrupt a U.S. trip, why, and what to do about it.</p>
+      </div>
+    </div>
+    <span id="ai-pill" class="pill">checking AI…</span>
+  </header>
+
+  <main>
+    <section class="card input-card">
+      <form id="nl-form" class="nl-row">
+        <input id="nl-text" type="text" autocomplete="off"
+               placeholder="Describe the trip, e.g. “NYC to San Francisco tomorrow”" />
+        <button type="submit" class="btn">Understand ✨</button>
+      </form>
+      <div class="examples">
+        Try:
+        <button class="chip" data-q="New York to San Francisco tomorrow">NYC → SF tomorrow</button>
+        <button class="chip" data-q="Boston to Las Vegas today">Boston → Las Vegas today</button>
+        <button class="chip" data-q="Chicago to Denver next Friday">Chicago → Denver next Friday</button>
+        <button class="chip" data-q="Seattle to Miami in 30 days">Seattle → Miami in 30 days</button>
+      </div>
+      <div id="parse-note" class="muted small"></div>
+
+      <form id="trip-form" class="trip-grid">
+        <label>From
+          <input id="origin" required placeholder="City or airport (NYC, JFK…)" list="airport-list" />
+        </label>
+        <label>To
+          <input id="destination" required placeholder="City or airport" list="airport-list" />
+        </label>
+        <label>Date
+          <input id="date" type="date" required />
+        </label>
+        <button type="submit" class="btn primary" id="assess-btn">Assess trip</button>
+      </form>
+      <datalist id="airport-list"></datalist>
+    </section>
+
+    <section id="loading" class="card hidden">
+      <div class="spinner"></div>
+      <div>
+        <strong>Checking 5 live sources in parallel…</strong>
+        <div class="muted small">FAA NAS status · NWS alerts &amp; forecasts · Aviation TAFs · Open-Meteo · SIGMETs — then asking Claude to brief.</div>
+      </div>
+    </section>
+
+    <section id="error" class="card error hidden"></section>
+
+    <section id="results" class="hidden">
+      <div id="banner" class="card banner"></div>
+
+      <div class="grid-2">
+        <div class="card" id="briefing"></div>
+        <div class="card map-card">
+          <div id="map"></div>
+          <div class="muted small map-legend">Great-circle route · ● primary airports · ○ alternates checked · shaded = SIGMETs crossing the route</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Route breakdown</h2>
+        <div id="segments" class="segments"></div>
+        <div id="alternates"></div>
+      </div>
+
+      <div class="card">
+        <div class="section-head">
+          <h2>Evidence</h2>
+          <label class="small muted"><input type="checkbox" id="show-context" checked /> show context-only &amp; all-clear items</label>
+        </div>
+        <p class="muted small">Every item is normalized from a live source. Severity is scored by transparent rules; “context only” items were found but don't apply to your trip date or to airline passengers.</p>
+        <table class="evidence">
+          <thead><tr><th>ID</th><th>Where</th><th>Source</th><th>Severity</th><th>Finding</th><th>Confidence</th></tr></thead>
+          <tbody id="evidence-body"></tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>Sources checked</h2>
+        <div id="sources" class="sources"></div>
+        <p class="muted small" id="footer-meta"></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>
